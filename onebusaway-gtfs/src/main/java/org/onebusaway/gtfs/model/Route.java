@@ -69,6 +69,12 @@ public final class Route extends IdentityBean<AgencyAndId> {
   @CsvField(name="bikes_allowed", optional = true, defaultValue = "0")
   private int bikesAllowed = 0;
 
+  /**
+   * 0 = unknown / unspecified, 1 = cars allowed, 2 = cars NOT allowed
+   */
+  @CsvField(name="cars_allowed", optional = true, defaultValue = "0")
+  private int carsAllowed = 0;
+
   @CsvField(optional = true)
   private int sortOrder = MISSING_VALUE;
 
@@ -95,6 +101,7 @@ public final class Route extends IdentityBean<AgencyAndId> {
     this.color = r.color;
     this.textColor = r.textColor;
     this.bikesAllowed = r.bikesAllowed;
+    this.carsAllowed = r.carsAllowed;
     this.sortOrder = r.sortOrder;
     this.brandingUrl = r.brandingUrl;
     this.eligibilityRestricted = r.eligibilityRestricted;
@@ -196,6 +203,21 @@ public final class Route extends IdentityBean<AgencyAndId> {
    */
   public void setBikesAllowed(int bikesAllowed) {
     this.bikesAllowed = bikesAllowed;
+  }
+
+  /**
+   * @return 0 = unknown / unspecified, 1 = cars allowed, 2 = cars NOT allowed
+   */
+  public int getCarsAllowed() {
+    return carsAllowed;
+  }
+
+  /**
+   * @param carsAllowed 0 = unknown / unspecified, 1 = cars allowed, 2 = cars
+   *          NOT allowed
+   */
+  public void setCarsAllowed(int carsAllowed) {
+    this.carsAllowed = carsAllowed;
   }
 
   public boolean isSortOrderSet() {
